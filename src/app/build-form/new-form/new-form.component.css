@@ -1,0 +1,6 @@
+.x-p-a-10 {
+  padding: 10px !important;
+}
+.app-hover:hover {
+  box-shadow: 1px 4px 4px 1px rgba(0,0,0,0.1);
+}

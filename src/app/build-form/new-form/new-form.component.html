@@ -1,0 +1,230 @@
+<div class="container-fixed-lg">
+  <div>
+    <!--Questions Type Element Section start-->
+    <div class="col-xs-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="panel panel-default bg-primary-lighter" draggable="true"
+                   (dragstart)="dragScreen($event, 'welcome')" (click)="enableScreen('welcome'); navigateToScreen('welcome')">
+                <div class="panel-body x-p-a-10 text-center app-pointer app-hover">
+                  <i class="fa fa-window-restore fa-lg hidden-xs hidden-sm" aria-hidden="true"></i>&nbsp; Welcome Screen
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.shortText)"
+                   draggable="true" (dragstart)="drag($event, controlType.shortText)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-text-width fa-lg semi-bold" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Short Text</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.multipleChoice)"
+                   draggable="true" (dragstart)="drag($event, controlType.multipleChoice)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-check-square-o fa-lg semi-bold" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Multiple Choice</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.longText)"
+                   draggable="true" (dragstart)="drag($event, controlType.longText)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-text-height fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Long Text</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.yesNo)"
+                   draggable="true" (dragstart)="drag($event, controlType.yesNo)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-balance-scale fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Yes / No</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.statement)"
+                   draggable="true" (dragstart)="drag($event, controlType.statement)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-quote-left fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Statement</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.rating)"
+                   draggable="true" (dragstart)="drag($event, controlType.rating)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-star-half-o fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Rating</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.dropdown)"
+                   draggable="true" (dragstart)="drag($event, controlType.dropdown)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-caret-square-o-down fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Dropdown</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.opinionScale)"
+                   draggable="true" (dragstart)="drag($event, controlType.opinionScale)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-ticket fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Opinion Scale</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.date)"
+                   draggable="true" (dragstart)="drag($event, controlType.date)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-calendar-o fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Date</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.email)"
+                   draggable="true" (dragstart)="drag($event, controlType.email)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-envelope-open-o fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Email</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.legal)"
+                   draggable="true" (dragstart)="drag($event, controlType.legal)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-gavel fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Legal</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.number)"
+                   draggable="true" (dragstart)="drag($event, controlType.number)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-hashtag fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Number</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="panel panel-default bg-complete-lighter" draggable="true"
+                   (dragstart)="dragScreen($event, 'thankyou')" (click)="enableScreen('thankyou'); navigateToScreen('thankyou')">
+                <div class="panel-body x-p-a-10 text-center app-pointer app-hover">
+                  <i class="fa fa-window-restore fa-lg hidden-xs hidden-sm" aria-hidden="true"></i>&nbsp; Thank You Screen
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Questions Type Element Section end-->
+
+    <!--Form build section start-->
+    <div class="col-xs-8">
+      <!--WelCome screen start-->
+      <div class="row m-r-5">
+        <div class="text-center b-a b-dashed bg-primary-lighter hint-text" style="height: 80px;"
+             (drop)="dropScreen($event, 'welcome')"  (dragover)="allowDrop($event)" *ngIf="!isWelcomeScreen">
+          <h5 class="semi-bold p-t-10 p-b-10">Drag & drop Welcome screen here</h5>
+        </div>
+
+        <div class="bg-white b-a b-grey m-b-5 app-floter app-pointer app-wrap-ellipses" *ngIf="isWelcomeScreen">
+          <div class="thumbnail-wrapper d32 circular bg-success text-white inline m-t-10 m-l-10 m-b-10">
+            <div class="bold">W</div>
+          </div>
+          <div class="p-l-15 inline">
+            <h5>
+              <i class="fa fa-window-restore" aria-hidden="true"></i>
+              <span class="m-l-5">&nbsp;|&nbsp;</span>
+              <span class="semi-bold">Welcome Screen</span>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <!--WelCome screen end-->
+
+      <!-- Questions section start -->
+      <div class="row m-t-20 m-b-20 m-r-5">
+        <!-- Questions list start-->
+        <div class="bg-white b-a b-grey m-b-5 app-floter app-pointer app-wrap-ellipses"
+             *ngFor="let question of questions; let index = index" (drop)="drop($event, index)" (dragover)="allowDrop($event)">
+          <div class="thumbnail-wrapper d32 circular bg-success text-white inline m-t-10 m-l-10 m-b-10">
+            <div class="bold">{{question.order}}</div>
+          </div>
+          <div class="p-l-15 inline">
+            <h5>
+              <i [ngClass]="setControlIcon(question.controlType)" aria-hidden="true"></i>
+              <span class="m-l-5">&nbsp;|&nbsp;</span>
+              <span class="semi-bold">{{question.label | questionType: question.controlType}}</span>
+            </h5>
+          </div>
+        </div>
+        <!-- Questions list end-->
+        <div class="b-a b-dashed bg-info-lighter hint-text m-t-5" (drop)="drop($event)" (dragover)="allowDrop($event)">
+          <h5 class="text-center semi-bold p-t-5 p-b-5">Drag & drop Questions here</h5>
+        </div>
+      </div>
+      <!-- Questions section start -->
+
+      <!--Thank You section start-->
+      <div class="row m-r-5">
+        <div class="text-center b-a b-dashed bg-complete-lighter hint-text" style="height: 80px;"
+             (drop)="dropScreen($event, 'thankyou')"  (dragover)="allowDrop($event)" *ngIf="!isThankYouScreen">
+          <h5 class="semi-bold p-t-10 p-b-10">Drag & drop Thank You screen here</h5>
+        </div>
+
+        <div class="bg-white b-a b-grey m-b-5 app-floter app-pointer app-wrap-ellipses" *ngIf="isThankYouScreen">
+          <div class="thumbnail-wrapper d32 circular bg-success text-white inline m-t-10 m-l-10 m-b-10">
+            <div class="bold">T</div>
+          </div>
+          <div class="p-l-15 inline">
+            <h5>
+              <i class="fa fa-window-restore" aria-hidden="true"></i>
+              <span class="m-l-5">&nbsp;|&nbsp;</span>
+              <span class="semi-bold">Thank You Screen</span>
+            </h5>
+          </div>
+        </div>
+      </div>
+      <!--Thank You section start-->
+    </div>
+    <!--Form build section start-->
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="container-fixed-lg">
+  <div>
+    <div class="col-xs-4">
+      <div class="panel panel-default">
+        <div class="panel-heading separator text-center">
+          <div class="panel-title">
+            <i class="fa fa-caret-square-o-down fa-lg semi-bold" aria-hidden="true"></i>&nbsp;&nbsp;
+            Dropdown
+          </div>
+        </div>
+        <div class="panel-body">
+          <form class="m-t-15" role="form" name="questionForm">
+            <div class="form-group x-separator">
+              <label>Question</label>
+              <textarea class="form-control" rows="4" name="questionText" [(ngModel)]="question"></textarea>
+            </div>
+            <div class="form-group x-separator">
+              <label>
+                Description &nbsp;<i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
+              </label>
+              <span class="help">(Leave empty if not required)</span>
+              <textarea class="form-control" name="descriptionText" [(ngModel)]="description"></textarea>
+            </div>
+            <div class="form-group">
+              <label>
+                Choices &nbsp;<i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
+              </label>
+              <textarea class="form-control" rows="4" name="choicesText" [(ngModel)]="choicesText" (blur)="splitChoices()"
+                        placeholder="Seperate choices by comma (,) or semicolon (;) or newline"></textarea>
+            </div>
+            <hr class="x-separator">
+            <div>
+              <div class="p-b-5">
+                <i class="fa fa-gears fa-lg semi-bold" aria-hidden="true"></i>&nbsp;
+                <span class="bold">Settings</span>
+              </div>
+              <div class="form-group checkbox check-success checkbox-circle">
+                <input class="form-control" type="checkbox" id="questionReq" name="questionReq" [(ngModel)]="isRequired">
+                <label for="questionReq">
+                  Required &nbsp;<i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
+                </label>
+              </div>
+            </div>
+            <hr class="x-separator">
+            <div class="pull-right">
+              <button type="button" class="btn btn-default" (click)="cancel()">
+                <span>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-success">
+                <span>Save</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div class="panel panel-transparent p-t-40">
+        <div class="panel-body">
+          <div *ngIf="question">
+            <div class="row">
+              <div class="col-xs-1 text-right">
+                <div class="x-text-question bold">Q.</div>
+              </div>
+              <div class="col-xs-10">
+                <div class="x-text-question">{{question}}<span class="x-required bold" *ngIf="isRequired">*</span></div>
+                <div class="m-t-10 x-text-description">{{description}}</div>
+              </div>
+            </div>
+            <div class="row m-t-10">
+              <div class="col-xs-1 text-right">
+              </div>
+              <div class="col-xs-10">
+                <select class="form-control x-select-box x-text-question text-success">
+                  <option>Select an option</option>
+                  <option *ngFor="let choice of choices">{{choice}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

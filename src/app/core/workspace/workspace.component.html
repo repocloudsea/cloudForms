@@ -1,0 +1,74 @@
+<div class="container-fluid container-fixed-lg">
+  <!--Search Bar Start-->
+  <div class="row m-t-20">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <app-search-bar (onFiltered)="doSearch($event)"></app-search-bar>
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+  <!--Search Bar End-->
+
+  <!-- Forms Starts-->
+  <div class="row m-t-10">
+    <div class="col-sm-2" *ngIf="!showBuildForm">
+      <div class="panel panel-default bg-success text-white app-tile">
+        <div class="panel-heading text-center">
+          <div class="panel-title">
+            New cloudForm
+          </div>
+        </div>
+        <div class="panel-body text-center" (click)="showBuildFormTile()">
+          <i class="fa fa-plus fa-4x m-t-35"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2" *ngIf="showBuildForm">
+      <div class="panel panel-default app-tile">
+        <div class="pull-right m-b-5 m-r-5 hint-text">
+          <i class="fa fa-times" aria-hidden="true" (click)="hideBuildFormTile()"></i>
+        </div>
+        <div class="panel-body">
+          <form #createForm="ngForm" (ngSubmit)="buildCloudForm(createForm.valid)" role="form" novalidate>
+            <div class="form-group">
+              <label>Form Name</label>
+              <input type="text" name="formName" class="form-control" [(ngModel)]="cloudForm.name" required>
+            </div>
+            <div class="form-group">
+              <label>Language</label>
+              <p>
+                <i class="fa fa-globe" aria-hidden="true"></i>&nbsp; English
+              </p>
+            </div>
+            <div class="bottom-left bottom-right m-b-5 m-r-5 m-l-5">
+              <button type="submit" class="btn btn-lg btn-block btn-success">
+                <span>Start building!</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--Save Form List Start-->
+    <div class="col-sm-2" *ngFor="let cloudForm of cloudForms | filterBy:'name':search; let index = index">
+      <div id="{{'loader'+ index}}" class="x-loader"></div>
+      <div class="panel panel-default app-tile">
+        <div class="panel-body">
+          <div class="text-center p-t-10">
+            <h5 class="semi-bold">{{cloudForm.name}}</h5>
+          </div>
+
+          <div class="bottom-left bottom-right m-b-5 m-r-5 m-l-5">
+            <button type="submit" class="btn btn-lg btn-block btn-success">
+              <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add Questions
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Save Form List Ends-->
+  </div>
+  <!-- Forms Ends-->
+</div>

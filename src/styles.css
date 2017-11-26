@@ -1,0 +1,129 @@
+/* You can add global styles to this file, and also import other style files */
+.app-link {
+  cursor: pointer
+}
+.app-card-search {
+  outline: 0;
+  border-width: 0;
+  width: 100%;
+  font-size: 14pt;
+  font-weight: 600;
+}
+.app-tile {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+  cursor: pointer;
+  height: 200px;
+}
+.app-tile:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+}
+.app-tile-heading {
+  font-weight: 600;
+  font-size: 14pt;
+  line-height: 23pt;
+}
+.app-floter {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+}
+.app-floter:hover {
+  box-shadow: 0 4px 12px 0 rgba(0,0,0,0.5);
+}
+.app-pointer {
+  cursor: pointer;
+}
+.app-wrap-ellipses {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.x-header {
+  background-color: #2C3E50;
+  color: #FDFEFE;
+}
+.x-text-answer {
+  color: #D6EAF8;
+}
+.x-text-answer-dark {
+  color: #76D7C4;
+}
+.x-input-transparent {
+  border: none;
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+.x-text-question {
+  font-size: x-large;
+  line-height: 30px;
+}
+.x-text-description {
+  font-size: larger;
+  line-height: 20px;
+}
+.x-separator {
+  border-bottom-width: thick;
+  border-color: #ddd;
+}
+.x-required {
+  color: red;
+}
+.x-select-box {
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid rgba(79, 176, 174, 0.4);
+  display: block;
+  width: 100%;
+  padding-bottom: 10px;
+  height: 50px;
+}
+.x-select-option {
+  padding: 10px;
+  border: medium;
+  margin: 10px;
+}
+.x-p-a-10 {
+  padding: 10px !important;
+}
+.x-w-150 {
+  width: 160px;
+}
+.x-w-100 {
+  width: 100px;
+}
+.x-text-option {
+  font-size: larger;
+  line-height: 20px;
+}
+.x-bar-active {
+  border-top-width: 3px;
+  border-top-color: white;
+  border-top-style: solid;
+  background: #2c3e50 !important;
+}
+.x-loader {
+  position: absolute;
+  z-index: 999;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.x-loader-spin {
+  border: 3px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 3px solid #3498db;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

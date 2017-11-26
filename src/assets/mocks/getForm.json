@@ -1,0 +1,28 @@
+{
+  "id": "123456789",
+  "name": "Admission Form",
+  "language": "English",
+  "questions": [
+    {
+      "key": "auto1",
+      "label": "What is your name ?",
+      "required": false,
+      "order": 1,
+      "controlType": "shortText"
+    },
+    {
+      "key": "auto2",
+      "label": "What is your last name ?",
+      "required": false,
+      "order": 2,
+      "controlType": "longText"
+    },
+    {
+      "key": "auto3",
+      "label": "What is India's independence day ?",
+      "required": false,
+      "order": 3,
+      "controlType": "multipleChoice"
+    }
+  ]
+}

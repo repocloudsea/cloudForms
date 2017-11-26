@@ -1,0 +1,93 @@
+<div class="container-fixed-lg">
+  <div>
+    <div class="col-xs-4">
+      <div class="panel panel-default">
+        <div class="panel-heading separator text-center">
+          <div class="panel-title">
+            <i class="fa fa-hashtag fa-lg semi-bold" aria-hidden="true"></i>&nbsp;&nbsp;
+            Number
+          </div>
+        </div>
+        <div class="panel-body">
+          <form class="m-t-15" role="form" name="questionForm">
+            <div class="form-group x-separator">
+              <label>Question</label>
+              <textarea class="form-control" rows="4" name="questionText" [(ngModel)]="question"></textarea>
+            </div>
+            <div class="form-group x-separator">
+              <label>
+                Description &nbsp;<i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
+              </label>
+              <span class="help">(Leave empty if not required)</span>
+              <textarea class="form-control" name="descriptionText" [(ngModel)]="description"></textarea>
+            </div>
+            <div class="form-group">
+              <label>
+                Range of values &nbsp;<i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
+              </label>
+              <span class="help">(Leave empty if not required)</span>
+              <div class="row">
+                <div class="col-xs-4">
+                  <input type="number" class="form-control x-w-100" name="minCount" [(ngModel)]="minCount">
+                </div>
+                <div class="col-xs-2 bold p-t-5">
+                  To
+                </div>
+                <div class="col-xs-6">
+                  <input type="number" class="form-control x-w-100" name="maxCount" [(ngModel)]="maxCount">
+                </div>
+              </div>
+            </div>
+            <hr class="x-separator">
+            <div>
+              <div class="p-b-5">
+                <i class="fa fa-gears fa-lg semi-bold" aria-hidden="true"></i>&nbsp;
+                <span class="bold">Settings</span>
+              </div>
+              <div class="form-group checkbox check-success checkbox-circle">
+                <input class="form-control" type="checkbox" id="questionReq" name="questionReq" [(ngModel)]="isRequired">
+                <label for="questionReq">
+                  Required &nbsp;<i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
+                </label>
+              </div>
+            </div>
+            <hr class="x-separator">
+            <div class="pull-right">
+              <button type="button" class="btn btn-default" (click)="cancel()">
+                <span>Cancel</span>
+              </button>
+              <button type="submit" class="btn btn-success">
+                <span>Save</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div class="panel panel-transparent p-t-40">
+        <div class="panel-body">
+          <div *ngIf="question">
+            <div class="row">
+              <div class="col-xs-1 text-right">
+                <div class="x-text-question bold">Q.</div>
+              </div>
+              <div class="col-xs-10">
+                <div class="x-text-question">{{question}}<span class="x-required bold" *ngIf="isRequired">*</span></div>
+                <div class="m-t-10 x-text-description">{{description}}</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-1 text-right">
+                <i class="h3 x-text-answer fa fa-long-arrow-right fa-lg semi bold" aria-hidden="true"></i>
+              </div>
+              <div class="col-xs-10">
+                <h4 class="semi-bold x-text-answer">Answer goes here...</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
