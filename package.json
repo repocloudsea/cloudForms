@@ -13,7 +13,8 @@
     "postinstall": "ng build --aot --target=production"
   },
    "engines" : {
-     "node": "8.9.1"
+     "node": "8.9.1",
+     "npm": "3.10.9"
   },
   "private": true,
   "dependencies": {
