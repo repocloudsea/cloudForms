@@ -9,7 +9,8 @@ import {Router} from '@angular/router';
 export class FrameNumberQuestionComponent implements OnInit {
   question: string;
   description: string;
-  maxChar: number;
+  minCount: number;
+  maxCount: number;
   isRequired: boolean;
 
   constructor(private router: Router) { }

@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
 export class FrameShortQuestionComponent implements OnInit {
   question: string;
   description: string;
-  maxCount: number;
+  maxChar: number;
   minCount: number;
   isRequired: boolean;
 

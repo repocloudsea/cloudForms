@@ -7,8 +7,8 @@ import {Router} from '@angular/router';
   styleUrls: ['./frame-legal-question.component.css']
 })
 export class FrameLegalQuestionComponent implements OnInit {
-  intro: string;
-  legalText: string;
+  question: string;
+  description: string;
   isRequired: boolean;
 
   constructor(private router: Router) { }
