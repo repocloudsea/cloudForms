@@ -22,15 +22,15 @@ export class WorkspaceComponent implements OnInit {
               private utils: CommonUtilsService) {
     this.showBuildForm = false;
     this.cloudForm = new CloudForm();
-    this.cloudForms = [];     // TODO: need to remove
+    this.cloudForms = [];
   }
 
   ngOnInit() {
-    this.workspaceService.getCloudForms()
-      .subscribe((cloudForms) => {
-        this.cloudForms = cloudForms;
-      }, (error) => {
-        console.log('error in get cloudforms service');
+    this.workspaceService.getForms(this.utils.retrieve('userId'))
+      .subscribe((forms) => {
+        if (forms._embedded) {
+          this.cloudForms = forms._embedded.userForms;
+        }
       });
   }
 
@@ -52,19 +52,25 @@ export class WorkspaceComponent implements OnInit {
   /*This method save form and redirect to add questions into it*/
   buildCloudForm(isFormValid: boolean): void {
     if (isFormValid) {
+      this.cloudForm.userId = this.utils.retrieve('userId');
       this.cloudForm.language = this.cloudForm.language || 'English';
       this.cloudForms.push(this.cloudForm);
       this.utils.showLoader(this.cloudForms.length - 1);
-      setTimeout(() => {
-        this.utils.hideLoader(this.cloudForms.length - 1);
-        this.router.navigateByUrl('workspace/form/questions');   // TODO: remove this after development
-      }, 3000);
-      /*this.workspaceService.saveCloudForm(this.cloudForm)
-        .subscribe((response) => {
-          console.log('success');
-        }, (error) => {
-          console.log('error in save cloudform service');
-        });*/
+      this.hideBuildFormTile();
+      this.workspaceService.saveForm(this.cloudForm)
+        .subscribe((form) => {
+          if (form.id) {
+            this.utils.hideLoader(this.cloudForms.length - 1);
+            this.openForm(form.id);
+          }
+        });
+    }
+  }
+
+  /*This method open form by formId*/
+  openForm(formId: string): void {
+    if (formId) {
+      this.router.navigate(['workspace/forms', formId, 'questions']);
     }
   }
 }

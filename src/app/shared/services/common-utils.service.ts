@@ -46,4 +46,15 @@ export class CommonUtilsService {
   hideLoader(index: number): void {
     $('#loader' + index).removeClass('x-loader-spin');
   }
+
+  /*This method stored in local storage of browser*/
+  store(key: string, value: any): void {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  /*This method retrieve from local storage of browser*/
+  retrieve(key: string): any {
+    const value = localStorage.getItem(key);
+    return JSON.parse(value);
+  }
 }

@@ -5,7 +5,7 @@ import {CloudForm} from '../../shared/models/cloud-form.model';
 import {ControlType} from '../../shared/enums/control-type.enum';
 import {ControlIcons} from '../../shared/constants/control-icon.constant';
 import {isNullOrUndefined} from 'util';
-import {Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {WelcomeScreen} from '../../shared/models/welcome-screen.model';
 import {ThankyouScreen} from '../../shared/models/thankyou-screen.model';
 
@@ -21,14 +21,17 @@ export class NewFormComponent implements OnInit {
   controlIcons = ControlIcons;
   isWelcomeScreen = false;
   isThankYouScreen = false;
+  formId: string;
 
   constructor(private formService: FormService,
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute) {
     this.questions = [];
+    this.formId = this.route.snapshot.paramMap.get('id');
   }
 
   ngOnInit() {
-    this.formService.getForm('123456')
+    this.formService.getForm(this.formId)
       .subscribe((cloudForm) => {
         if (cloudForm.questions && cloudForm.questions.length > 0) {
           this.questions = cloudForm.questions;

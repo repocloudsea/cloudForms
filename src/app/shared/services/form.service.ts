@@ -1,24 +1,27 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
-import {CommonUtilsService} from './common-utils.service';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
 import {CloudForm} from '../models/cloud-form.model';
 import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {HandleError, HttpErrorHandler} from './http-error-handler.service';
+import {catchError, retry} from 'rxjs/operators';
 
 @Injectable()
 export class FormService {
+  private handleError: HandleError;
 
-  constructor(private http: Http,
-              private utils: CommonUtilsService) { }
+  constructor(private http: HttpClient,
+              private httpErrorHandler: HttpErrorHandler) {
+    this.handleError = httpErrorHandler.createHandleError('FormService');
+  }
 
-  /*This method gives all questions for specified cloudForm*/
+  /*This method gets form created by user*/
   getForm(formId: string): Observable<CloudForm> {
-    const options = this.utils.getRequestOptions();
-    const serviceUrl = environment.getForm; /*+ '/' + formId;*/
-    return this.http.get(environment.getForm, options)
-      .map(this.utils.extractData)
-      .catch(this.utils.handleError);
+    const url = `${environment.rootUrl}/forms/id/${formId}`;
+    return this.http.get<CloudForm>(url)
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(this.handleError('getForm', new CloudForm(), true))
+      );
   }
 }

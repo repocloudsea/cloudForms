@@ -33,7 +33,7 @@
           <form #createForm="ngForm" (ngSubmit)="buildCloudForm(createForm.valid)" role="form" novalidate>
             <div class="form-group">
               <label>Form Name</label>
-              <input type="text" name="formName" class="form-control" [(ngModel)]="cloudForm.name" required>
+              <input type="text" name="formName" class="form-control" [(ngModel)]="cloudForm.title" required>
             </div>
             <div class="form-group">
               <label>Language</label>
@@ -57,11 +57,11 @@
       <div class="panel panel-default app-tile">
         <div class="panel-body">
           <div class="text-center p-t-10">
-            <h5 class="semi-bold">{{cloudForm.name}}</h5>
+            <h5 class="semi-bold">{{cloudForm.title}}</h5>
           </div>
 
           <div class="bottom-left bottom-right m-b-5 m-r-5 m-l-5">
-            <button type="submit" class="btn btn-lg btn-block btn-success">
+            <button type="button" class="btn btn-lg btn-block btn-success" (click)="openForm(cloudForm.id)">
               <i class="fa fa-plus" aria-hidden="true"></i>&nbsp; Add Questions
             </button>
           </div>

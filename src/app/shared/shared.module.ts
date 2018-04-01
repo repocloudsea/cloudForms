@@ -5,6 +5,7 @@ import {CommonUtilsService} from './services/common-utils.service';
 import {FormService} from './services/form.service';
 import {QuestionTypePipe} from './pipes/question-type.pipe';
 import { FilterByPipe } from './pipes/filter-by.pipe';
+import {HttpErrorHandler} from './services/http-error-handler.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { FilterByPipe } from './pipes/filter-by.pipe';
   ],
   providers: [
     CommonUtilsService,
-    FormService
+    FormService,
+    HttpErrorHandler
   ]
 })
 export class SharedModule { }

@@ -1,31 +1,37 @@
 import { Injectable } from '@angular/core';
-import {Http} from '@angular/http';
-import {CommonUtilsService} from '../../shared/services/common-utils.service';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
 import {CloudForm} from '../../shared/models/cloud-form.model';
 import {environment} from '../../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {HandleError, HttpErrorHandler} from '../../shared/services/http-error-handler.service';
+import {catchError, retry} from 'rxjs/operators';
+import {FormsResponse} from '../../shared/models/forms-response.model';
 
 @Injectable()
 export class WorkspaceService {
+  private handleError: HandleError;
 
-  constructor(private http: Http,
-              private utils: CommonUtilsService) { }
-
-  /*This method gets all cloudForms*/
-  getCloudForms(): Observable<CloudForm[]> {
-    const options = this.utils.getRequestOptions();
-    return this.http.get(environment.getCloudForms, options)
-      .map(this.utils.extractData)
-      .catch(this.utils.handleError);
+  constructor(private http: HttpClient,
+              private httpErrorHandler: HttpErrorHandler) {
+    this.handleError = httpErrorHandler.createHandleError('WorkspaceService');
   }
 
-  /*This method save CloudForms*/
-  saveCloudForm(cloudForm: CloudForm): Observable<CloudForm> {
-    const options = this.utils.getRequestOptions();
-    return this.http.post(environment.saveCloudForms, cloudForm, options)
-      .map(this.utils.extractData)
-      .catch(this.utils.handleError);
+  /*This method gets all cloudForms for the user*/
+  getForms(userId: string): Observable<FormsResponse> {
+    const url = `${environment.rootUrl}/forms/userid/${userId}`;
+    return this.http.get<FormsResponse>(url)
+      .pipe(
+        catchError(this.handleError('getForms', new FormsResponse()))
+      );
+  }
+
+  /*This method saves CloudForm*/
+  saveForm(form: CloudForm): Observable<CloudForm> {
+    const url = `${environment.rootUrl}/forms`;
+    return this.http.post<CloudForm>(url, form)
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(this.handleError('saveForm', form))
+      );
   }
 }
