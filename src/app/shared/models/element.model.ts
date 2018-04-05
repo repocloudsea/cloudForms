@@ -7,7 +7,6 @@ export class Element<T> {
   required: boolean;
   order: number;
   attachmentUrl: string;
-  maxLength: number;
 
   constructor(options: {
     type?: string,
@@ -15,7 +14,6 @@ export class Element<T> {
     question?: string,
     helpText?: string,
     required?: boolean,
-    maxLength?: number
     value?: T,
     refId?: string,
     attachmentUrl?: string,
@@ -28,6 +26,5 @@ export class Element<T> {
     this.required = !!options.required;
     this.order = options.order === undefined ? 1 : options.order;
     this.attachmentUrl = options.attachmentUrl;
-    this.maxLength = options.maxLength || 200;
   }
 }

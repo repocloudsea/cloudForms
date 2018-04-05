@@ -13,7 +13,7 @@ import {FormService} from '../../shared/services/form.service';
 export class FrameLongQuestionComponent implements OnInit {
   question: string;
   description: string;
-  maxChar: number;
+  maxLength: number;
   isRequired: boolean;
   formId: string;
   order: number;
@@ -29,6 +29,7 @@ export class FrameLongQuestionComponent implements OnInit {
   ngOnInit() {
   }
 
+  /*This method cancel question creation and redirected to form page*/
   cancel(): void {
     this.navigate.goToQuestions(this.formId);
   }
@@ -51,6 +52,6 @@ export class FrameLongQuestionComponent implements OnInit {
       question: this.question,
       helpText: this.description,
       required: this.isRequired,
-      maxLength: this.maxChar});
+      maxLength: this.maxLength});
   }
 }
