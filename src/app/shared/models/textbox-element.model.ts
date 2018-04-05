@@ -7,7 +7,7 @@ export class TextboxElement extends Element<string> {
 
   constructor(options: {} = {}) {
     super(options);
-    this.elementType = options['type'] || 'text';
+    this.elementType = 'text';
     this.maxLength = options['maxLength'];
     this.minLength = options['minLength'];
   }

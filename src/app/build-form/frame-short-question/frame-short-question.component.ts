@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {NavigationService} from '../../shared/services/navigation.service.service';
 import {CommonUtilsService} from '../../shared/services/common-utils.service';
 import {FormService} from '../../shared/services/form.service';
@@ -43,10 +43,10 @@ export class FrameShortQuestionComponent implements OnInit {
     }
   }
 
-  /*This method create long-question element*/
+  /*This method create short-question element*/
   createElement() {
-    return this.utils.createTextbox({
-      type: 'longText',
+    return this.utils.createElement({
+      type: 'shortText',
       order: this.order,
       question: this.question,
       helpText: this.description,

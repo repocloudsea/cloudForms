@@ -46,7 +46,7 @@ export class FrameLongQuestionComponent implements OnInit {
 
   /*This method create long-question element*/
   createElement() {
-    return this.utils.createTextbox({
+    return this.utils.createElement({
       type: 'longText',
       order: this.order,
       question: this.question,

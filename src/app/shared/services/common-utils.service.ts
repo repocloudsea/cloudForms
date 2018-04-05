@@ -3,6 +3,8 @@ import {Headers, RequestOptions, Response} from '@angular/http';
 import 'rxjs/add/observable/throw';
 import {Observable} from 'rxjs/Observable';
 import {TextboxElement} from '../models/textbox-element.model';
+import {ControlType} from '../enums/control-type.enum';
+import {NumberElement} from '../models/number-element';
 declare var $: any;
 
 @Injectable()
@@ -60,17 +62,26 @@ export class CommonUtilsService {
   }
 
   /*This method construct question element object for textbox element*/
-  createTextbox(options: {
+  createElement(options: {
     type?: string,
     order?: number,
     question?: string,
     helpText?: string,
     required?: boolean,
-    maxLength?: number
     value?: string,
     refId?: string,
     attachmentUrl?: string,
-  } = {}) {
-    return new TextboxElement(options);
+    maxLength?: number,
+    minLength?: number,
+    maxValue?: number,
+    minValue?: number
+  } = {}): any {
+    if ((options.type === ControlType.longText.toString())
+      || (options.type === ControlType.shortText.toString())) {
+      return new TextboxElement(options);
+    }
+    if (options.type === ControlType.number.toString()) {
+      return new NumberElement(options);
+    }
   }
 }

@@ -23,6 +23,7 @@ export class WorkspaceComponent implements OnInit {
     this.showBuildForm = false;
     this.cloudForm = new CloudForm();
     this.cloudForms = [];
+    this.utils.store('userId', 'ashish'); // TODO: need to remove this once auth server is setup
   }
 
   ngOnInit() {
