@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Headers, RequestOptions, Response} from '@angular/http';
 import 'rxjs/add/observable/throw';
 import {Observable} from 'rxjs/Observable';
+import {TextboxElement} from '../models/textbox-element.model';
 declare var $: any;
 
 @Injectable()
@@ -56,5 +57,20 @@ export class CommonUtilsService {
   retrieve(key: string): any {
     const value = localStorage.getItem(key);
     return JSON.parse(value);
+  }
+
+  /*This method construct question element object for textbox element*/
+  createTextbox(options: {
+    type?: string,
+    order?: number,
+    question?: string,
+    helpText?: string,
+    required?: boolean,
+    maxLength?: number
+    value?: string,
+    refId?: string,
+    attachmentUrl?: string,
+  } = {}) {
+    return new TextboxElement(options);
   }
 }

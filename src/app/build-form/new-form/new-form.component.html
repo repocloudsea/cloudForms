@@ -184,15 +184,15 @@
       <div class="row m-t-20 m-b-20 m-r-5">
         <!-- Questions list start-->
         <div class="bg-white b-a b-grey m-b-5 app-floter app-pointer app-wrap-ellipses"
-             *ngFor="let question of questions; let index = index" (drop)="drop($event, index)" (dragover)="allowDrop($event)">
+             *ngFor="let element of elements; let index = index" (drop)="drop($event, index)" (dragover)="allowDrop($event)">
           <div class="thumbnail-wrapper d32 circular bg-success text-white inline m-t-10 m-l-10 m-b-10">
-            <div class="bold">{{question.order}}</div>
+            <div class="bold">{{element.order}}</div>
           </div>
           <div class="p-l-15 inline">
             <h5>
-              <i [ngClass]="setControlIcon(question.controlType)" aria-hidden="true"></i>
+              <i [ngClass]="setControlIcon(element.type)" aria-hidden="true"></i>
               <span class="m-l-5">&nbsp;|&nbsp;</span>
-              <span class="semi-bold">{{question.label | questionType: question.controlType}}</span>
+              <span class="semi-bold">{{element.question | questionType: element.type}}</span>
             </h5>
           </div>
         </div>

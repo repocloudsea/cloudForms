@@ -5,9 +5,11 @@ import {CloudForm} from '../../shared/models/cloud-form.model';
 import {ControlType} from '../../shared/enums/control-type.enum';
 import {ControlIcons} from '../../shared/constants/control-icon.constant';
 import {isNullOrUndefined} from 'util';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {WelcomeScreen} from '../../shared/models/welcome-screen.model';
 import {ThankyouScreen} from '../../shared/models/thankyou-screen.model';
+import {Element} from '../../shared/models/element.model';
+import {NavigationService} from '../../shared/services/navigation.service.service';
 
 @Component({
   selector: 'app-new-form',
@@ -16,7 +18,7 @@ import {ThankyouScreen} from '../../shared/models/thankyou-screen.model';
 })
 export class NewFormComponent implements OnInit {
   questions: QuestionBase<any>[];
-  cloudForm: CloudForm;
+  elements: Element<any>[];
   controlType = ControlType;
   controlIcons = ControlIcons;
   isWelcomeScreen = false;
@@ -25,19 +27,17 @@ export class NewFormComponent implements OnInit {
 
   constructor(private formService: FormService,
               private router: Router,
-              private route: ActivatedRoute) {
-    this.questions = [];
+              private route: ActivatedRoute,
+              private navigate: NavigationService) {
     this.formId = this.route.snapshot.paramMap.get('id');
+    this.elements = [];
   }
 
   ngOnInit() {
     this.formService.getForm(this.formId)
-      .subscribe((cloudForm) => {
-        if (cloudForm.questions && cloudForm.questions.length > 0) {
-          this.questions = cloudForm.questions;
-          if (!this.questions) {
-            this.questions = [];
-          }
+      .subscribe((cloudForm: CloudForm) => {
+        if (cloudForm.elements && cloudForm.elements.length > 0) {
+          this.elements = cloudForm.elements;
         }
       }, (error) => {
         console.log('GetForm service failing');
@@ -47,10 +47,10 @@ export class NewFormComponent implements OnInit {
   /*This method construct question on the basis of controlType and navigate to frame question page*/
   frameQuestion(controlIndex: number): void {
     if (controlIndex) {
-      const questionLength = this.questions.length + 1;
-      const question = new QuestionBase(ControlType[controlIndex], questionLength);
-      this.questions.push(question);
-      this.navigateToFrameQuestion(question.controlType);
+      const elementLength = this.elements.length + 1;
+      const element = new Element({type: ControlType[controlIndex], order: elementLength});
+      this.elements.push(element);
+      this.navigate.goToFrameQuestion(this.formId, element.type, element.order);
     }
   }
 
@@ -61,9 +61,9 @@ export class NewFormComponent implements OnInit {
 
   /*This method calls on drag start for questions*/
   drag(event, controlIndex: number) {
-    const questionLength = this.questions.length + 1;
-    const question = new QuestionBase(ControlType[controlIndex], questionLength);
-    event.dataTransfer.setData('object', JSON.stringify(question));
+    const elementLength = this.elements.length + 1;
+    const element = new Element({type: ControlType[controlIndex], order: elementLength});
+    event.dataTransfer.setData('object', JSON.stringify(element));
   }
 
   /*This method calls on drop event from questions*/
@@ -71,26 +71,19 @@ export class NewFormComponent implements OnInit {
     event.preventDefault();
     const json = event.dataTransfer.getData('object');
     if (json) {
-      const question = JSON.parse(json);
+      const element = JSON.parse(json);
       if (!isNullOrUndefined(index)) {
         console.log('Element Index: ' + index);
-        this.questions.splice(index, 0, question);
+        this.elements.splice(index, 0, element);
       } else {
-        this.questions.push(question);
+        this.elements.push(element);
       }
-      this.navigateToFrameQuestion(question.controlType);
+      this.navigate.goToFrameQuestion(this.formId, element.type, element.order);
     }
   }
 
   allowDrop(ev) {
     ev.preventDefault();
-  }
-
-  /*This method navigate to frame-question page on the basis of controlType*/
-  private navigateToFrameQuestion(controlType: string): void {
-    setTimeout(() => {
-      this.router.navigate(['workspace/form/questions', controlType]);
-    }, 2000);
   }
 
   /*This method calls on drag start for welcome and thankYou screen*/
@@ -120,7 +113,7 @@ export class NewFormComponent implements OnInit {
   /*This method navigate to frame-screen page on the basis of screenType*/
   navigateToScreen(screenType: string): void {
     setTimeout(() => {
-      this.router.navigate(['workspace/form/screen', screenType]);
+      this.router.navigate(['workspace/forms', this.formId, 'screen', screenType]);
     }, 2000);
   }
 
