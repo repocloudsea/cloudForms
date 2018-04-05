@@ -5,7 +5,7 @@ export enum ControlType {
   yesNo,
   statement,
   rating,
-  dropdown,
+  dropDown,
   opinionScale,
   date,
   email,

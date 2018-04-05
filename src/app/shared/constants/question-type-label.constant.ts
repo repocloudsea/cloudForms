@@ -5,7 +5,7 @@ export const QuestionTypeLabel = {
   yesNo: 'Yes / No',
   statement: 'Statement',
   rating: 'Rating',
-  dropdown: 'Dropdown',
+  dropDown: 'Dropdown',
   opinionScale: 'OpinionScale',
   date: 'Date',
   email: 'Email',

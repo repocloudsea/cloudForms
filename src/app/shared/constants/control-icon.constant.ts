@@ -5,7 +5,7 @@ export const ControlIcons = {
   yesNo: 'fa fa-balance-scale',
   statement: 'fa fa-quote-left',
   rating: 'fa fa-star-half-o',
-  dropdown: 'fa fa-caret-square-o-down',
+  dropDown: 'fa fa-caret-square-o-down',
   opinionScale: 'fa fa-ticket',
   date: 'fa fa-calendar-o',
   email: 'fa fa-envelope-open-o',
