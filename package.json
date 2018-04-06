@@ -5,13 +5,13 @@
   "main": "app.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --aot",
-    "build": "ng build --aot",
+    "start": "ng serve --prod",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "preinstall": "npm install -g @angular/cli",
-    "postinstall": "ng build --aot"
+    "postinstall": "ng build --prod"
   },
   "private": true,
   "dependencies": {
