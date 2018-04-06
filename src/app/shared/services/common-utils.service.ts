@@ -4,6 +4,7 @@ import 'rxjs/add/observable/throw';
 import {Observable} from 'rxjs/Observable';
 import {TextboxElement} from '../models/textbox-element.model';
 import {NumberElement} from '../models/number-element.model';
+import {ChoicesElement} from '../models/choices-element.model';
 declare var $: any;
 
 @Injectable()
@@ -73,7 +74,8 @@ export class CommonUtilsService {
     maxLength?: number,
     minLength?: number,
     maxValue?: number,
-    minValue?: number
+    minValue?: number,
+    choices?: string[]
   } = {}): any {
     if ((options.type === 'shortText')
       || (options.type === 'longText')) {
@@ -81,6 +83,9 @@ export class CommonUtilsService {
     }
     if (options.type === 'number') {
       return new NumberElement(options);
+    }
+    if (options.type === 'dropDown') {
+      return new ChoicesElement((options));
     }
   }
 }
