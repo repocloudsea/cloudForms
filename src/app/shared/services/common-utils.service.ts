@@ -3,8 +3,7 @@ import {Headers, RequestOptions, Response} from '@angular/http';
 import 'rxjs/add/observable/throw';
 import {Observable} from 'rxjs/Observable';
 import {TextboxElement} from '../models/textbox-element.model';
-import {ControlType} from '../enums/control-type.enum';
-import {NumberElement} from '../models/number-element';
+import {NumberElement} from '../models/number-element.model';
 declare var $: any;
 
 @Injectable()
