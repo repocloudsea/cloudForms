@@ -26,18 +26,6 @@
               </div>
             </div>
             <div class="col-xs-6">
-              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.multipleChoice)"
-                   draggable="true" (dragstart)="drag($event, controlType.multipleChoice)">
-                <div class="panel-body x-p-a-10 app-pointer app-hover">
-                  <i class="fa fa-check-square-o fa-lg semi-bold" aria-hidden="true"></i>&nbsp;
-                  <span class="hidden-xs hidden-sm">Multiple Choice</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-6">
               <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.longText)"
                    draggable="true" (dragstart)="drag($event, controlType.longText)">
                 <div class="panel-body x-p-a-10 app-pointer app-hover">
@@ -46,12 +34,24 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="row">
             <div class="col-xs-6">
-              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.yesNo)"
-                   draggable="true" (dragstart)="drag($event, controlType.yesNo)">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.number)"
+                   draggable="true" (dragstart)="drag($event, controlType.number)">
                 <div class="panel-body x-p-a-10 app-pointer app-hover">
-                  <i class="fa fa-balance-scale fa-lg" aria-hidden="true"></i>&nbsp;
-                  <span class="hidden-xs hidden-sm">Yes / No</span>
+                  <i class="fa fa-hashtag fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Number</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.dropDown)"
+                   draggable="true" (dragstart)="drag($event, controlType.dropDown)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-caret-square-o-down fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Dropdown</span>
                 </div>
               </div>
             </div>
@@ -59,11 +59,11 @@
 
           <div class="row">
             <div class="col-xs-6">
-              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.statement)"
-                   draggable="true" (dragstart)="drag($event, controlType.statement)">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.multipleChoice)"
+                   draggable="true" (dragstart)="drag($event, controlType.multipleChoice)">
                 <div class="panel-body x-p-a-10 app-pointer app-hover">
-                  <i class="fa fa-quote-left fa-lg" aria-hidden="true"></i>&nbsp;
-                  <span class="hidden-xs hidden-sm">Statement</span>
+                  <i class="fa fa-check-square-o fa-lg semi-bold" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Multiple Choice</span>
                 </div>
               </div>
             </div>
@@ -80,11 +80,32 @@
 
           <div class="row">
             <div class="col-xs-6">
-              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.dropDown)"
-                   draggable="true" (dragstart)="drag($event, controlType.dropDown)">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.yesNo)"
+                   draggable="true" (dragstart)="drag($event, controlType.yesNo)">
                 <div class="panel-body x-p-a-10 app-pointer app-hover">
-                  <i class="fa fa-caret-square-o-down fa-lg" aria-hidden="true"></i>&nbsp;
-                  <span class="hidden-xs hidden-sm">Dropdown</span>
+                  <i class="fa fa-balance-scale fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Yes / No</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.date)"
+                   draggable="true" (dragstart)="drag($event, controlType.date)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-calendar-o fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Date</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.email)"
+                   draggable="true" (dragstart)="drag($event, controlType.email)">
+                <div class="panel-body x-p-a-10 app-pointer app-hover">
+                  <i class="fa fa-envelope-open-o fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Email</span>
                 </div>
               </div>
             </div>
@@ -101,27 +122,6 @@
 
           <div class="row">
             <div class="col-xs-6">
-              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.date)"
-                   draggable="true" (dragstart)="drag($event, controlType.date)">
-                <div class="panel-body x-p-a-10 app-pointer app-hover">
-                  <i class="fa fa-calendar-o fa-lg" aria-hidden="true"></i>&nbsp;
-                  <span class="hidden-xs hidden-sm">Date</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-6">
-              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.email)"
-                   draggable="true" (dragstart)="drag($event, controlType.email)">
-                <div class="panel-body x-p-a-10 app-pointer app-hover">
-                  <i class="fa fa-envelope-open-o fa-lg" aria-hidden="true"></i>&nbsp;
-                  <span class="hidden-xs hidden-sm">Email</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-6">
               <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.legal)"
                    draggable="true" (dragstart)="drag($event, controlType.legal)">
                 <div class="panel-body x-p-a-10 app-pointer app-hover">
@@ -131,11 +131,11 @@
               </div>
             </div>
             <div class="col-xs-6">
-              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.number)"
-                   draggable="true" (dragstart)="drag($event, controlType.number)">
+              <div class="panel panel-default bg-info-lighter " (click)="frameQuestion(controlType.statement)"
+                   draggable="true" (dragstart)="drag($event, controlType.statement)">
                 <div class="panel-body x-p-a-10 app-pointer app-hover">
-                  <i class="fa fa-hashtag fa-lg" aria-hidden="true"></i>&nbsp;
-                  <span class="hidden-xs hidden-sm">Number</span>
+                  <i class="fa fa-quote-left fa-lg" aria-hidden="true"></i>&nbsp;
+                  <span class="hidden-xs hidden-sm">Statement</span>
                 </div>
               </div>
             </div>
