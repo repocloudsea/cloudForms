@@ -76,11 +76,11 @@ export class CommonUtilsService {
     maxValue?: number,
     minValue?: number
   } = {}): any {
-    if ((options.type === ControlType.longText.toString())
-      || (options.type === ControlType.shortText.toString())) {
+    if ((options.type === 'shortText')
+      || (options.type === 'longText')) {
       return new TextboxElement(options);
     }
-    if (options.type === ControlType.number.toString()) {
+    if (options.type === 'number') {
       return new NumberElement(options);
     }
   }
