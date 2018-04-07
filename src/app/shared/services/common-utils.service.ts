@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {TextboxElement} from '../models/textbox-element.model';
 import {NumberElement} from '../models/number-element.model';
 import {ChoicesElement} from '../models/choices-element.model';
+import {LegalElement} from '../models/legal-element.model';
 declare var $: any;
 
 @Injectable()
@@ -86,6 +87,9 @@ export class CommonUtilsService {
     }
     if ((options.type === 'dropDown') || options.type === 'multipleChoice') {
       return new ChoicesElement((options));
+    }
+    if (options.type === 'legal') {
+      return new LegalElement(options);
     }
   }
 }

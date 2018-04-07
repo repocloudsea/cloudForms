@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="panel-body">
-          <form class="m-t-15" role="form" name="questionForm">
+          <form class="m-t-15" role="form" name="questionForm" (submit)="save()">
             <div class="form-group x-separator">
               <label>Intro</label>
               <textarea class="form-control" rows="4" name="questionText" [(ngModel)]="question"></textarea>
