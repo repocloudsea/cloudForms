@@ -4,6 +4,16 @@ import {NavigationService} from '../../shared/services/navigation.service.servic
 import {CommonUtilsService} from '../../shared/services/common-utils.service';
 import {FormService} from '../../shared/services/form.service';
 
+const SHAPES = {
+  stars: 'fa fa-star-o fa-4x',
+  hearts: 'fa fa-heart-o fa-4x',
+  users: 'fa fa-user-o fa-4x',
+  thumbsUp: 'fa fa-thumbs-o-up fa-4x',
+  flags: 'fa fa-flag-o fa-4x',
+  ticks: 'fa fa-check-circle-o fa-4x',
+  pencils: 'fa fa-pencil-square-o fa-4x'
+}
+
 @Component({
   selector: 'app-frame-rating-question',
   templateUrl: './frame-rating-question.component.html',
@@ -31,6 +41,10 @@ export class FrameRatingQuestionComponent implements OnInit {
 
   ngOnInit() {
     this.addToSteps();
+  }
+
+  get shapeStyle(): string {
+    return SHAPES[this.shape] || SHAPES.stars;
   }
 
   addToSteps(): void {
@@ -61,7 +75,7 @@ export class FrameRatingQuestionComponent implements OnInit {
   /*This method create long-question element*/
   createElement() {
     return this.utils.createElement({
-      type: 'rates',
+      type: 'rate',
       order: this.order,
       question: this.question,
       helpText: this.description,
