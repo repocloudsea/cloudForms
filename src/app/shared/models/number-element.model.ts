@@ -8,7 +8,7 @@ export class NumberElement extends Element<number> {
   constructor(options: {} = {}) {
     super(options);
     this.elementType = 'number';
-    this.maxValue = options['maxLength'];
-    this.minValue = options['minLength'];
+    this.maxValue = options['maxValue'];
+    this.minValue = options['minValue'];
   }
 }

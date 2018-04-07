@@ -26,7 +26,7 @@ const appRoutes: Routes = [
   {path: 'workspace/forms/:id/screen/thankyou', component: FrameThankyouScreenComponent},
   {path: 'workspace/forms/:id/questions/shortText/:order', component: FrameShortQuestionComponent},
   {path: 'workspace/forms/:id/questions/longText/:order', component: FrameLongQuestionComponent},
-  {path: 'workspace/forms/:id/questions/dropdown/:order', component: FrameDropdownQuestionComponent},
+  {path: 'workspace/forms/:id/questions/dropDown/:order', component: FrameDropdownQuestionComponent},
   {path: 'workspace/forms/:id/questions/date/:order', component: FrameDateQuestionComponent},
   {path: 'workspace/forms/:id/questions/legal/:order', component: FrameLegalQuestionComponent},
   {path: 'workspace/forms/:id/questions/yesNo/:order', component: FrameYesNoQuestionComponent},

@@ -75,16 +75,16 @@ export class CommonUtilsService {
     minLength?: number,
     maxValue?: number,
     minValue?: number,
-    choices?: string[]
+    choices?: string[],
+    howMany?: number
   } = {}): any {
-    if ((options.type === 'shortText')
-      || (options.type === 'longText')) {
+    if ((options.type === 'shortText') || (options.type === 'longText')) {
       return new TextboxElement(options);
     }
     if (options.type === 'number') {
       return new NumberElement(options);
     }
-    if (options.type === 'dropDown') {
+    if ((options.type === 'dropDown') || options.type === 'multipleChoice') {
       return new ChoicesElement((options));
     }
   }
