@@ -7,6 +7,9 @@ import {NumberElement} from '../models/number-element.model';
 import {ChoicesElement} from '../models/choices-element.model';
 import {LegalElement} from '../models/legal-element.model';
 import {RateElement} from '../models/rate-element.model';
+import {YesNoElement} from '../models/yesno-element.model';
+import {EmailElement} from '../models/email-element.model';
+import {DateElement} from '../models/date-element.model';
 declare var $: any;
 
 @Injectable()
@@ -80,7 +83,10 @@ export class CommonUtilsService {
     choices?: string[],
     howMany?: number,
     rates?: number,
-    shapes?: string
+    shapes?: string,
+    yesbuttonText?: string,
+    noButtonText?: string,
+    format?: string
   } = {}): any {
     if ((options.type === 'shortText') || (options.type === 'longText')) {
       return new TextboxElement(options);
@@ -94,8 +100,17 @@ export class CommonUtilsService {
     if (options.type === 'legal') {
       return new LegalElement(options);
     }
-    if (options.type === 'rates') {
+    if (options.type === 'rate') {
       return new RateElement(options);
+    }
+    if (options.type === 'yesno') {
+      return new YesNoElement(options);
+    }
+    if (options.type === 'email') {
+      return new EmailElement(options);
+    }
+    if (options.type === 'date') {
+      return new DateElement(options);
     }
   }
 }
