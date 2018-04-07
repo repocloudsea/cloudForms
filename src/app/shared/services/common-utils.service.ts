@@ -6,6 +6,7 @@ import {TextboxElement} from '../models/textbox-element.model';
 import {NumberElement} from '../models/number-element.model';
 import {ChoicesElement} from '../models/choices-element.model';
 import {LegalElement} from '../models/legal-element.model';
+import {RateElement} from '../models/rate-element.model';
 declare var $: any;
 
 @Injectable()
@@ -77,7 +78,9 @@ export class CommonUtilsService {
     maxValue?: number,
     minValue?: number,
     choices?: string[],
-    howMany?: number
+    howMany?: number,
+    rates?: number,
+    shapes?: string
   } = {}): any {
     if ((options.type === 'shortText') || (options.type === 'longText')) {
       return new TextboxElement(options);
@@ -90,6 +93,9 @@ export class CommonUtilsService {
     }
     if (options.type === 'legal') {
       return new LegalElement(options);
+    }
+    if (options.type === 'rates') {
+      return new RateElement(options);
     }
   }
 }

@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="panel-body">
-          <form class="m-t-15" role="form" name="questionForm">
+          <form class="m-t-15" role="form" name="questionForm" (submit)="save()">
             <div class="form-group x-separator">
               <label>Question</label>
               <textarea class="form-control" rows="4" name="questionText" [(ngModel)]="question"></textarea>
@@ -25,20 +25,20 @@
               <label>
                 Steps &nbsp;<i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
               </label>
-              <input type="number" class="form-control" name="steps" [(ngModel)]="noOfSteps" (change)="addToSteps()" max="10" min="3">
+              <input type="number" class="form-control" name="steps" [(ngModel)]="rates" (change)="addToSteps()" max="10" min="3">
             </div>
             <div class="form-group">
               <label>
                 Shape &nbsp;<i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
               </label>
               <select class="form-control" name="shape" [(ngModel)]="shape">
-                <option value="fa fa-star-o fa-4x"><i class="fa fa-star" aria-hidden="true"></i>&nbsp; Stars</option>
-                <option value="fa fa-heart-o fa-4x"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Hearts</option>
-                <option value="fa fa-user-o fa-4x"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Users</option>
-                <option value="fa fa-thumbs-o-up fa-4x"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp; Thumbs Up</option>
-                <option value="fa fa-flag-o fa-4x"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp; Flags</option>
-                <option value="fa fa-check-circle-o fa-4x"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp; Ticks</option>
-                <option value="fa fa-pencil-square-o fa-4x"><i class="fa fa-pencil-square" aria-hidden="true"></i>&nbsp; Pencils</option>
+                <option value="stars"><i class="fa fa-star" aria-hidden="true"></i>&nbsp; Stars</option>
+                <option value="hearts"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp; Hearts</option>
+                <option value="users"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Users</option>
+                <option value="thumbsUp"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp; Thumbs Up</option>
+                <option value="flags"><i class="fa fa-flag" aria-hidden="true"></i>&nbsp; Flags</option>
+                <option value="ticks"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp; Ticks</option>
+                <option value="pencils"><i class="fa fa-pencil-square" aria-hidden="true"></i>&nbsp; Pencils</option>
               </select>
             </div>
             <hr class="x-separator">
