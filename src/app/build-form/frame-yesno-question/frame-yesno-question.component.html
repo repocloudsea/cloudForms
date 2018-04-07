@@ -9,7 +9,7 @@
           </div>
         </div>
         <div class="panel-body">
-          <form class="m-t-15" role="form" name="questionForm">
+          <form class="m-t-15" role="form" name="questionForm" (submit)="save()">
             <div class="form-group x-separator">
               <label>Question</label>
               <textarea class="form-control" rows="4" name="questionText" [(ngModel)]="question"></textarea>
@@ -20,6 +20,14 @@
               </label>
               <span class="help">(Leave empty if not required)</span>
               <textarea class="form-control" name="descriptionText" [(ngModel)]="description"></textarea>
+            </div>
+            <div class="form-group x-separator">
+              <label>
+                Buttons &nbsp;<i class="fa fa-question-circle fa-lg" aria-hidden="true"></i>
+              </label>
+              <input type="text" class="form-control m-b-5" name="yesButtonLabel" [(ngModel)]="yesbuttonText"
+                     placeholder="YES button lable">
+              <input type="text" class="form-control" name="noButtonLabel" [(ngModel)]="noButtonText" placeholder="NO button lable">
             </div>
             <hr class="x-separator">
             <div>
@@ -71,7 +79,7 @@
                     </div>
                     <div class="p-l-15">
                       <span class="semi-bold x-text-question p-l-15">
-                        Yes
+                        {{yesbuttonText}}
                       </span>
                     </div>
                   </div>
@@ -83,7 +91,7 @@
                     </div>
                     <div class="p-l-15">
                       <span class="semi-bold x-text-question p-l-15">
-                        No
+                        {{noButtonText}}
                       </span>
                     </div>
                   </div>
